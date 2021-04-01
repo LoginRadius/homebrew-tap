@@ -10,19 +10,19 @@ class Lr < Formula
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/LoginRadius/lr-cli/releases/download/v0.1.0/lr_0.1.0_macOS_amd64.tar.gz"
-    sha256 "755edb6f99e15bfac5f144da93351c18f49136f8553ed4978bd2614cd1c1675f"
+    sha256 "13896015acc7c1f65453deeb56bd276d2ef6433487dc34223830a1aa7281e781"
   end
   if OS.linux? && Hardware::CPU.intel?
     url "https://github.com/LoginRadius/lr-cli/releases/download/v0.1.0/lr_0.1.0_linux_amd64.tar.gz"
-    sha256 "130d62ede010ef07de5b07df67e3dc785cd91c0ded2af4be2074aea4a76c2f64"
+    sha256 "05d8d99ccb3419a0aa73bbc04105fbf62e8adc1a004ab86de3745d114796023a"
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
     url "https://github.com/LoginRadius/lr-cli/releases/download/v0.1.0/lr_0.1.0_linux_armv6.tar.gz"
-    sha256 "20eb8cc6ee33b9d71a02328e41e603a157c164da4471b67a1602d5384f93238b"
+    sha256 "cc1e8f10aad20441b5ae5f3eff64ccc18d3968fd898179d070902b9385aca7b3"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
     url "https://github.com/LoginRadius/lr-cli/releases/download/v0.1.0/lr_0.1.0_linux_arm64.tar.gz"
-    sha256 "35093a360c9a10de92e8f79e589a7d5efe4495618711ac72c5f31b9215fa06d9"
+    sha256 "87e2c7efe7eb4992fcca557f33d12d7441ec14bf12574a8b735cbc69b337e7fc"
   end
 
   def install
@@ -30,6 +30,6 @@ class Lr < Formula
   end
 
   test do
-    system "#{bin}/lr --help"
+    system "lr --help"
   end
 end
