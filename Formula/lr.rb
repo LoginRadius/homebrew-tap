@@ -5,24 +5,24 @@
 class Lr < Formula
   desc "LoginRadius CLI to support LoginRadius API's and workflow!"
   homepage "https://github.com/loginradius/lr-cli"
-  version "0.3.1"
+  version "0.3.2"
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/LoginRadius/lr-cli/releases/download/v0.3.1/lr_0.3.1_macOS_amd64.tar.gz"
-    sha256 "656996769a6710ed75734989daa0d4a740bed7413b38d31c5249b4ce67619c32"
+    url "https://github.com/LoginRadius/lr-cli/releases/download/v0.3.2/lr_0.3.2_macOS_amd64.tar.gz"
+    sha256 "b3088ceaa7be6c5e0f57ab17155958f6e9b75fd7576e53c9a8e2c605d4f43bcf"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/LoginRadius/lr-cli/releases/download/v0.3.1/lr_0.3.1_linux_amd64.tar.gz"
-    sha256 "17cb8f29809f9e04e2eac353cd75015384ffd14f29129f25ff1094f59c34de35"
+    url "https://github.com/LoginRadius/lr-cli/releases/download/v0.3.2/lr_0.3.2_linux_amd64.tar.gz"
+    sha256 "e6466f40b64b01175de729520cb5f8f08367942658aafbbdc71bfd152ef0e8db"
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/LoginRadius/lr-cli/releases/download/v0.3.1/lr_0.3.1_linux_armv6.tar.gz"
-    sha256 "657f51691a7f7e03565b52c056a31d59f27c2c5f5d6d124d10c28014595b2d7a"
+    url "https://github.com/LoginRadius/lr-cli/releases/download/v0.3.2/lr_0.3.2_linux_armv6.tar.gz"
+    sha256 "7a7dd0111efe35d99349c151b14e33bff44cd4ca57b322800f33dda6adadf25a"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/LoginRadius/lr-cli/releases/download/v0.3.1/lr_0.3.1_linux_arm64.tar.gz"
-    sha256 "a0818110d8e44b3e793385601ca910dd14b8fe4b7a7e14ebc04057120d7aa6b3"
+    url "https://github.com/LoginRadius/lr-cli/releases/download/v0.3.2/lr_0.3.2_linux_arm64.tar.gz"
+    sha256 "bcd4b47f62354739f9aa3cb192578ee8e5f4e1060c00b20b432f618eaad95ea6"
   end
 
   def install
