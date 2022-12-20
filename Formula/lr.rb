@@ -5,28 +5,52 @@
 class Lr < Formula
   desc "LoginRadius CLI to support LoginRadius API's and workflow!"
   homepage "https://github.com/loginradius/lr-cli"
-  version "1.1.0"
-  bottle :unneeded
+  version "2.0.0-beta"
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/LoginRadius/lr-cli/releases/download/v1.1.0/lr_1.1.0_macOS_amd64.tar.gz"
-    sha256 "b2731741ae34af4d5f57b9328e3695190e8a7f233f8396434637d40dc0cb574b"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/LoginRadius/lr-cli/releases/download/v1.1.0/lr_1.1.0_linux_amd64.tar.gz"
-    sha256 "9c5d828346ea5066a55945d39a16f7f62cda0d95cbab1c4a44eeaec473b20367"
-  end
-  if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/LoginRadius/lr-cli/releases/download/v1.1.0/lr_1.1.0_linux_armv6.tar.gz"
-    sha256 "4966e0e6d8c1b75c2b59a7af2effe88f13d5fc4ad160a6fddd942b0de7adce3d"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/LoginRadius/lr-cli/releases/download/v1.1.0/lr_1.1.0_linux_arm64.tar.gz"
-    sha256 "86ce961a0dbfcb5948dfd172c06ea0684e434e4cb8f548f3a7ce967aed08881b"
+  on_macos do
+    url "https://github.com/LoginRadius/lr-cli/releases/download/v2.0.0-beta/lr_2.0.0-beta_macOS_amd64.tar.gz"
+    sha256 "ab279bbc06a34943865a8a874775bd817367b67664ae70fa0be065605528f264"
+
+    def install
+      bin.install "lr"
+    end
+
+    if Hardware::CPU.arm?
+      def caveats
+        <<~EOS
+          The darwin_arm64 architecture is not supported for the Lr
+          formula at this time. The darwin_amd64 binary may work in compatibility
+          mode, but it might not be fully supported.
+        EOS
+      end
+    end
   end
 
-  def install
-    bin.install "lr"
+  on_linux do
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/LoginRadius/lr-cli/releases/download/v2.0.0-beta/lr_2.0.0-beta_linux_armv6.tar.gz"
+      sha256 "424ce159d4d2497eea28885d045ef61cca857c5f9a94d7da17053a84295a95a2"
+
+      def install
+        bin.install "lr"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/LoginRadius/lr-cli/releases/download/v2.0.0-beta/lr_2.0.0-beta_linux_arm64.tar.gz"
+      sha256 "62faf75d8746a5098d2ba683c73a7c4dc82e3873f78fe655ac4a09cdd75b0346"
+
+      def install
+        bin.install "lr"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/LoginRadius/lr-cli/releases/download/v2.0.0-beta/lr_2.0.0-beta_linux_amd64.tar.gz"
+      sha256 "0616a0b26f2208200d62d703c0cd1e776d1458b3669781f79dd4eade7f062df0"
+
+      def install
+        bin.install "lr"
+      end
+    end
   end
 
   test do
