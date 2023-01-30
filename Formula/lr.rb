@@ -5,11 +5,11 @@
 class Lr < Formula
   desc "LoginRadius CLI to support LoginRadius API's and workflow!"
   homepage "https://github.com/loginradius/lr-cli"
-  version "2.0.0-beta"
+  version "2.0.1-beta"
 
   on_macos do
-    url "https://github.com/LoginRadius/lr-cli/releases/download/v2.0.0-beta/lr_2.0.0-beta_macOS_amd64.tar.gz"
-    sha256 "ab279bbc06a34943865a8a874775bd817367b67664ae70fa0be065605528f264"
+    url "https://github.com/LoginRadius/lr-cli/releases/download/v2.0.1-beta/lr_2.0.1-beta_macOS_amd64.tar.gz"
+    sha256 "7779ffbd1853200e15fd88788e9a19fc7b46a4623438c07e9df50d3e6ea0453a"
 
     def install
       bin.install "lr"
@@ -28,24 +28,24 @@ class Lr < Formula
 
   on_linux do
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/LoginRadius/lr-cli/releases/download/v2.0.0-beta/lr_2.0.0-beta_linux_armv6.tar.gz"
-      sha256 "424ce159d4d2497eea28885d045ef61cca857c5f9a94d7da17053a84295a95a2"
+      url "https://github.com/LoginRadius/lr-cli/releases/download/v2.0.1-beta/lr_2.0.1-beta_linux_armv6.tar.gz"
+      sha256 "973a05f0e290ba99af47141641b72245510ce3369c16c48dc654d8f36b1dedbc"
 
       def install
         bin.install "lr"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/LoginRadius/lr-cli/releases/download/v2.0.0-beta/lr_2.0.0-beta_linux_arm64.tar.gz"
-      sha256 "62faf75d8746a5098d2ba683c73a7c4dc82e3873f78fe655ac4a09cdd75b0346"
+      url "https://github.com/LoginRadius/lr-cli/releases/download/v2.0.1-beta/lr_2.0.1-beta_linux_arm64.tar.gz"
+      sha256 "69e1b804e3abe0452c181960e25c306437fd2887743d729900e363a24d6c2583"
 
       def install
         bin.install "lr"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/LoginRadius/lr-cli/releases/download/v2.0.0-beta/lr_2.0.0-beta_linux_amd64.tar.gz"
-      sha256 "0616a0b26f2208200d62d703c0cd1e776d1458b3669781f79dd4eade7f062df0"
+      url "https://github.com/LoginRadius/lr-cli/releases/download/v2.0.1-beta/lr_2.0.1-beta_linux_amd64.tar.gz"
+      sha256 "bf672d7698d61ddd6df964e5ca4c7d3555bbb678d3e7ae37d969b6c75d912578"
 
       def install
         bin.install "lr"
